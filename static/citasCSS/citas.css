@@ -1,0 +1,36 @@
+/* citasCSS/citas.css */
+
+/* Estilos adicionales para adaptar el nav a diferentes dispositivos */
+@media (max-width: 767px) {
+    /* Estilos para dispositivos móviles */
+    .navbar-toggler {
+        display: block;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navbar-collapse {
+        text-align: center;
+    }
+
+    .navbar-toggler-icon {
+        margin: auto;
+    }
+}
+.navbar li {
+    color: aliceblue;
+}
+
+@media (min-width: 768px) {
+    /* Estilos para tablet y computadora */
+    .navbar-nav {
+        flex-direction: row;
+    }
+
+    .navbar-collapse {
+        text-align: left;
+    }
+}

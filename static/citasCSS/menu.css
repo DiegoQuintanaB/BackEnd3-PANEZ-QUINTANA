@@ -1,0 +1,51 @@
+.navbar-brand,
+.nav-link {
+    font-size: 1.5rem; /* Ajusta el tamaño de la letra según sea necesario */
+}
+
+.container-fluid {
+    position: relative;
+    overflow: hidden;
+}
+
+.container-fluid img {
+    width: 100%;
+    height: calc(100vh - 56px); /* 56px es la altura estimada de la barra de navegación */
+    object-fit: cover;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+}
+.username {
+    font-size: 30px; /* Tamaño del texto, ajusta según tus preferencias */
+    font-family: 'Fredoka', sans-serif; /* Texto en negrita */
+    color: rgb(143, 240, 255); /* Color de texto azul */
+    text-shadow: 2px 2px 4px rgba(0, 78, 134, 0.8), -2px -2px 4px rgba(0, 179, 255, 0.8); /* Efecto de sombra en el texto (azul y blanco) */
+    margin-top: 0%;
+    right: 10px;
+}
+
+
+
+/* ... Tu CSS existente ... */
+
+.quienes-somos-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+
+  /* Oculta el marcador de lista en el elemento li */
+li.username {
+    list-style: none;
+}

@@ -1,0 +1,78 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--mensajes-->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'citasCSS/login.css' %}">
+    <title>Iniciar Sesión</title>
+</head>
+<body style="background-color:aquamarine; height: 100%; width: 100%;">
+    <div style ="z-index: 2011;">
+        {% if messages %}
+            {% for m in messages %}
+                <script>
+                    Swal.fire({
+                    "title": "¡Bienvenido!",
+                    "text": "{{m}}",
+                    "icon": "success",
+                    confirmButtonText: 'Ok',
+                    confirmButtonColor: 'rgb(17, 47, 236)'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                        window.location.href = "{% url 'login' %}";
+                        }
+                    })
+                </script>
+            {% endfor%}
+        {% endif %}
+    </div>
+    <a href="{% url 'menu' %}" class="btn btn-primary btn-back">Ir a Menú</a>
+    <div class="card">
+        <div class="card-left">
+            {% if form.errors %}
+                <div class="alert alert-danger mt-3">
+                    <strong>Error:</strong> Nombre de usuario o contraseña incorrectos.
+                </div>
+            {% endif %}
+            <h2>Iniciar Sesión</h2>
+            <form method="POST" >
+                <table action={% url 'login' %}>
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <div class="entryarea">
+                            <input class="input-login" type="text" id="{{ form.username.id_for_label }}" name="{{ form.username.name }}" required autofocus >
+                            <div class="labelline">Nombre usuario</div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <div class="entryarea">
+                            <input class="input-login" type="password" id="{{ form.password.id_for_label }}" name="{{ form.password.name }}" required autofocus >
+                            <div class="labelline">Contraseña</div>
+                        </div>
+                    </div>
+                    <br>
+                    <p class="small mb-5 pb-lg-2"><a class="text-muted" href="{% url 'password_reset' %}">¿Olvidó su contraseña?</a></p>
+                    <br>
+                    <p>¿No tienes una cuenta? <a href="{% url 'registrarse' %}" class="link-info">Regístrese aquí</a></p>
+                    <br>
+                    <button type="submit">Iniciar Sesión</button> 
+                    <br>
+                    <a href="{% url 'admin:index' %}" target="_blank" class="btn btn-primary btn-back">Ingresar como Administrador</a>
+                    <br>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+<!-- Footer centrado -->
+<footer class="center-footer">
+    <div class="container">
+        <p>&copy; 2022 Todos los derechos reservados | Diseñado por SMARTGEOGRAPHIC</p>
+    </div>
+</footer>
+</html>
